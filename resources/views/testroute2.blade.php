@@ -1,7 +1,14 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: fedje
- * Date: 1-11-2021
- * Time: 11:52
- */
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Testing my application again!</h1>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta enim facere iusto laudantium mollitia nam, nulla quae quo reprehenderit soluta?</p>
+</body>
+</html>

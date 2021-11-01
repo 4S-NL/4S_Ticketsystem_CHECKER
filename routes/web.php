@@ -17,6 +17,18 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
+//opdracht 1.8
+Route::get('/testroute', function() {
+    return view('testroute');
+});
+
+//opdracht 1.8
+Route::get('/testroute2', function(){
+    return view('testroute2');
+});
+
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
