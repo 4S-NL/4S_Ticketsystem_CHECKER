@@ -1,5 +1,9 @@
 # TicketSystem 
 
+### correcties:
+opdracht 1.8:    
+*In de tag opdracht 1.8 staat niet de section('content') @endsection zoals het wel staat in het moduleboekje. Daardoor worden de pagina's later niet helemaal lekker getoond. Dit is een foutje in de opdracht in deze applicatie, maar staat wel goed in het moduleboekje.*
+
 ## Let Op    
 
 Deze repository is alleen om te kijken naar gedane veranderingen.    
