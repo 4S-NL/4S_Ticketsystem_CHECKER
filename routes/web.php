@@ -15,18 +15,15 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('home');
 
-
-//opdracht 1.8
 Route::get('/testroute', function() {
     return view('testroute');
-});
+})->name('testroute');
 
-//opdracht 1.8
 Route::get('/testroute2', function(){
     return view('testroute2');
-});
+})->name('testroute2');
 
 
 Route::get('/dashboard', function () {
