@@ -24,8 +24,16 @@ Route::get('/testroute2', [PagesController::class, 'testroute2'])->name('testrou
 Route::get('/events',  [PagesController::class, 'events'])->name('events');
 
 
-Route::group(['prefix' => 'dashboard', 'middleware' => 'auth'], function() {
+Route::group(['prefix' => 'dashboard'], function() {
     Route::resource('events', EventsController::class);
+    // bovenstaande regel maakt voor ons gelijk al deze onderstaande routes aan, handig he:
+    //Route::get('events', [EventsController::class, 'index'])->name('events.index');
+    //Route::post('events', [EventsController::class, 'store'])->name('events.store');
+    //Route::get('events/{id}', [EventsController::class, 'edit'])->name('events.edit');
+    //Route::put('events/{id}', [EventsController::class, 'update'])->name('events.update');
+    //Route::get('events/create', [EventsController::class, 'create'])->name('events.create');
+    //Route::get('events/{id}/edit', [EventsController::class, 'update'])->name('events.update');
+    //Route::delete('events/{id}', [EventsController::class, 'delete'])->name('events.delete');
 });
 
 Route::get('/dashboard', function () {
