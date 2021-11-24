@@ -25,7 +25,7 @@ class EventsController extends Controller
      */
     public function create()
     {
-        //
+        return view('dashboard/events/create');
     }
 
     /**
