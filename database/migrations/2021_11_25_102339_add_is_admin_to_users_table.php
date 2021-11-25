@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTicketsTable extends Migration
+class AddIsAdminToUsersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,8 @@ class CreateTicketsTable extends Migration
      */
     public function up()
     {
-        Schema::create('tickets', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('order_id')->references('id')->on('orders');
-            $table->timestamps();
+        Schema::table('users', function (Blueprint $table) {
+            $table->boolean('isAdmin')->default(0);
         });
     }
 
@@ -27,6 +25,8 @@ class CreateTicketsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tickets');
+        Schema::table('users', function (Blueprint $table) {
+            $table->dropColumn('isAdmin');
+        });
     }
 }
