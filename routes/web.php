@@ -24,7 +24,7 @@ Route::get('/testroute2', [PagesController::class, 'testroute2'])->name('testrou
 Route::get('/events',  [PagesController::class, 'events'])->name('events');
 
 
-Route::group(['prefix' => 'dashboard'], function() {
+Route::group(['prefix' => 'dashboard', 'middleware' => 'auth'], function() {
     Route::resource('events', EventsController::class);
     // bovenstaande regel maakt voor ons gelijk al deze onderstaande routes aan, handig he:
     //Route::get('events', [EventsController::class, 'index'])->name('events.index');
