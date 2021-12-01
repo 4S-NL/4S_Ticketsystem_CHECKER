@@ -18,10 +18,12 @@ class CreateEventsTable extends Migration
             $table->string('title');
             $table->string('address');
             $table->string('zip');
+            $table->string('city');
             $table->dateTime('start_date');
             $table->dateTime('end_date');
             $table->text('description')->nullable();
             $table->integer('capacity')->default(20);
+            $table->decimal('ticket_price');
             $table->decimal('service_costs', 9, 2);
             $table->timestamps();
         });

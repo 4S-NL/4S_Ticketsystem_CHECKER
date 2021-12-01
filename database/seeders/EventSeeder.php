@@ -17,29 +17,25 @@ class EventSeeder extends Seeder
         $event = new Event();
         $event->title = 'NK Atletiek';
         $event->address = 'Dr. Schaepmanlaan 4';
-        $event->zipcode = '4837BW';
+        $event->zip = '4837BW';
         $event->city = 'Breda';
         $event->start_date = '2022-06-25';
+        $event->end_date = '2022-06-25';
+        $event->service_costs = 0;
         $event->ticket_price = '19.99';
         $event->save();
 
         $event = new Event();
         $event->title = 'WK Bodybuilding';
         $event->address = 'Jaarbeursplein';
-        $event->zipcode = '3521AL';
+        $event->zip = '3521AL';
         $event->city = 'Utrecht';
         $event->start_date = '2022-03-18';
+        $event->end_date = '2022-03-18';
         $event->ticket_price = '25.00';
+        $event->service_costs = '19.99';
         $event->save();
 
-        $event = new Event();
-        $event->title = 'WK Bodybuilding';
-        $event->address = 'Jaarbeursplein';
-        $event->zipcode = '3521AL';
-        $event->city = 'Utrecht';
-        $event->start_date = '2020-03-18';
-        $event->ticket_price = '25.00';
-        $event->save();
 
     }
 }
