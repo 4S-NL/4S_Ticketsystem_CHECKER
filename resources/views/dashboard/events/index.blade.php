@@ -27,6 +27,6 @@
             </tbody>
         </table>
 
-        <a href="" class="btn btn-primary">Nieuw evenement aanmaken</a>
+        <a href="{{route('events.create')}}" class="btn btn-primary">Nieuw evenement aanmaken</a>
     </div>
 @endsection

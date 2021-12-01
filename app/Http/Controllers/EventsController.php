@@ -36,7 +36,31 @@ class EventsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'title' => 'required',
+            'address' => 'required',
+             'zip' => 'required',
+             'city' => 'required',
+            'description' => 'required|min:10',
+            'start_date' => 'required|date',
+            'end_date' => 'required|date|after:start_date',
+            'ticket_price' => 'numeric',
+            'service_costs' => 'numeric'
+        ]);
+
+        $event = new Event();
+        $event->title = $request->title;
+        $event->address = $request->address;
+        $event->zip = $request->zip;
+        $event->city = $request->city;
+        $event->description = $request->description;
+        $event->start_date = $request->start_date;
+        $event->end_date = $request->end_date;
+        $event->ticket_price = $request->ticket_price;
+        $event->service_costs = $request->service_costs;
+        $event->save();
+
+        return redirect()->route('events.index');
     }
 
     /**

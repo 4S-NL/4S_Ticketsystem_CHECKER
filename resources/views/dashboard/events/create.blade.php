@@ -5,7 +5,18 @@
         <h1>Dashboard</h1>
         <h2>Evenement aanmaken</h2>
 
-        <form action="">
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+
+        <form method="post" action="{{route('events.store')}}">
+            @csrf
             <div class="form-group">
                 <label for="title">Titel</label>
                 <input type="text" name="title" class="form-control" id="">
@@ -32,7 +43,7 @@
             </div>
             <div class="form-group">
                 <label for="">Ticketprijs</label>
-                <input type="number" min="0" step="any" name="TicketPrijs" class="form-control" id="">
+                <input type="number" min="0" step="any" name="ticket_price" class="form-control" id="">
             </div>
             <div class="form-group">
                 <label for="">Startdatum</label>
