@@ -17,7 +17,7 @@
             <tbody>
                 @foreach($events as $event)
                     <tr>
-                        <td><a href="">{{$event->title}}</a></td>
+                        <td><a href="{{route('events.show', $event->id)}}">{{$event->title}}</a></td>
                         <td>{{$event->start_date}}</td>
                         <td>€ {{$event->ticket_price}}</td>
                         <td>{{$event->address}}</td>

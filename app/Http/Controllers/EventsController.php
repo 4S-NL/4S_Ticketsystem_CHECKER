@@ -43,7 +43,7 @@ class EventsController extends Controller
              'city' => 'required',
             'description' => 'required|min:10',
             'start_date' => 'required|date',
-            'end_date' => 'required|date|after:start_date',
+            'end_date' => 'required|date',
             'ticket_price' => 'numeric',
             'service_costs' => 'numeric'
         ]);
@@ -79,11 +79,13 @@ class EventsController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+//     * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
-        //
+        $event = Event::findOrFail($id);
+        return view('dashboard/events/edit')
+                ->with(['event' => $event]);
     }
 
     /**
@@ -95,17 +97,42 @@ class EventsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'title' => 'required',
+            'address' => 'required',
+            'zip' => 'required',
+            'city' => 'required',
+            'description' => 'required|min:10',
+            'start_date' => 'required|date',
+            'end_date' => 'required|date',
+            'ticket_price' => 'numeric',
+            'service_costs' => 'numeric'
+        ]);
+
+        $event = Event::findOrFail($id);
+        $event->title = $request->title;
+        $event->address = $request->address;
+        $event->zip = $request->zip;
+        $event->city = $request->city;
+        $event->description = $request->description;
+        $event->start_date = $request->start_date;
+        $event->end_date = $request->end_date;
+        $event->ticket_price = $request->ticket_price;
+        $event->service_costs = $request->service_costs;
+        $event->save();
+
+        return back();
     }
 
     /**
      * Remove the specified resource from storage.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+//     * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
-        //
+        Event::destroy($id);
+        return redirect()->route('events.index');
     }
 }

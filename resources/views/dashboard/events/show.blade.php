@@ -14,7 +14,11 @@
 
         <div class="buttons">
             <a href="" class="btn btn-info">Aanpassen</a>
-            <a href="" class="btn btn-danger">Verwijderen</a>
+            <form action="{{route('events.destroy', $event->id)}}" method="post">
+                @csrf
+                @method('DELETE')
+                <input type="submit" value="Verwijderen" class="btn btn-danger">
+            </form>
         </div>
     </div>
 
