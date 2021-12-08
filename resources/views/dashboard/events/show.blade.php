@@ -8,7 +8,7 @@
         <h3>{{$event->title}}</h3>
         <p><b>Start:</b> {{$event->start_date}}</p>
         <p><b>Adres:</b> {{$event->address}}</p>
-        <p><b>Postcode:</b> {{$event->zipcode}}</p>
+        <p><b>Postcode:</b> {{$event->zip}}</p>
         <p><b>Locatie:</b> {{$event->city}}</p>
         <p><b>Ticketprijs:</b> {{$event->ticket_price}}</p>
 
