@@ -13,7 +13,7 @@
         <p><b>Ticketprijs:</b> {{$event->ticket_price}}</p>
 
         <div class="buttons">
-            <a href="" class="btn btn-info">Aanpassen</a>
+            <a href="{{route('events.edit', $event->id)}}" class="btn btn-info">Aanpassen</a>
             <form action="{{route('events.destroy', $event->id)}}" method="post">
                 @csrf
                 @method('DELETE')
