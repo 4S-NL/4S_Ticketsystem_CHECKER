@@ -27,6 +27,9 @@ Route::get('events/{id}/order', [\App\Http\Controllers\TicketsController::class,
     ->middleware(['auth'])
     ->name('events.orderticket');
 
+Route::post('events/{id}/order', [\App\Http\Controllers\TicketsController::class, 'store'])
+    ->middleware(['auth'])
+    ->name('events.storeOrderTicket');
 
 Route::group(['prefix' => 'dashboard', 'middleware' => 'auth'], function() {
     Route::resource('events', EventsController::class);

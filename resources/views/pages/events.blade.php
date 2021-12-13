@@ -2,6 +2,11 @@
 
 @section('content')
     <h1>Upcoming events</h1>
+
+    @if(session()->has('message'))
+        <p class="alert alert-info">{{session()->get('message')}}</p>
+    @endif
+
     @foreach($events as $event)
         <div class="container">
             <div class="card">

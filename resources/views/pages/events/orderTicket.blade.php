@@ -3,7 +3,8 @@
 @section('content')
     <div class="container">
         <h1>Order tickets for {{$event->title}}</h1>
-        <form action="" method="post">
+        <form action="{{route('events.storeOrderTicket', $event->id)}}" method="post">
+            @csrf
             <div class="form-group">
                 <label for="">Amount of tickets</label>
                 <input  type="number" name="amount">
