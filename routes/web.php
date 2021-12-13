@@ -23,6 +23,10 @@ Route::get('/testroute', [PagesController::class, 'testroute'])->name('testroute
 Route::get('/testroute2', [PagesController::class, 'testroute2'])->name('testroute2');
 Route::get('/events',  [PagesController::class, 'events'])->name('events');
 
+Route::get('events/{id}/order', [\App\Http\Controllers\TicketsController::class, 'order'])
+    ->middleware(['auth'])
+    ->name('events.orderticket');
+
 
 Route::group(['prefix' => 'dashboard', 'middleware' => 'auth'], function() {
     Route::resource('events', EventsController::class);
