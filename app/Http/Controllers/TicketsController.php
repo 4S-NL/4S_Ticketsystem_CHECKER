@@ -49,12 +49,12 @@ class TicketsController extends Controller
     {
         // eerst even het event uit de db ophalen, we hebben wat van die data straks nodig.
         $event = Event::findOrFail($eventId);
-
+        $order = null;
         // even valideren:
         $request->validate([
             'amount' => ['numeric']
         ]);
-        \DB::transaction( function() use ($request, $event) {
+        \DB::transaction( function() use ($request, $event, &$order) {
             $order = new Order();
             // \Auth::id() geeft je het id van de ingelogde gebruiker
             $order->customer_id = \Auth::id();
@@ -67,6 +67,7 @@ class TicketsController extends Controller
             $order->status = 'paid'; // we gaan er even voor het gemak van uit dat iedere order gelijk betaald is
             $order->order_date = Date('Y-m-d h:m:s'); // huidige datum en tijd
             $order->save();
+            $this->order = $order;
 
             // het aantal tickets wat de klant wenste te bestellen
             $amountOfTickets = $request->amount; // deze data komt uit het form wat is doorgestuurd
@@ -94,7 +95,7 @@ class TicketsController extends Controller
             // hier zijn we de for loop uit, en hebben we dus net zoveel tickets aangemaakt als dat een klant heeft ingevoerd.
         });
 
-        return redirect()->route('events')->with('message', 'Uw tickets zijn besteld!');
+        return redirect()->route('events.confirmOrder', $order->id)->with('message', 'Uw tickets zijn besteld!');
     }
 
     /**

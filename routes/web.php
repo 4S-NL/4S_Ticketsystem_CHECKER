@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\EventsController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\PagesController;
 use Illuminate\Support\Facades\Route;
 
@@ -26,6 +27,10 @@ Route::get('/events',  [PagesController::class, 'events'])->name('events');
 Route::get('events/{id}/order', [\App\Http\Controllers\TicketsController::class, 'order'])
     ->middleware(['auth'])
     ->name('events.orderticket');
+
+Route::get('/events/{order_id}/confirmOrder', [OrderController::class, 'confirmOrder'])
+    ->name('events.confirmOrder')
+    ->middleware('auth');
 
 Route::post('events/{id}/order', [\App\Http\Controllers\TicketsController::class, 'store'])
     ->middleware(['auth'])
