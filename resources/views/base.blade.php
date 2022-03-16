@@ -27,6 +27,11 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{route('events')}}">Upcoming Events</a>
                         </li>
+                        @auth
+                            <li class="nav-item">
+                                <a href="{{route('dashboard')}}" class="nav-link">Dashboard</a>
+                            </li>
+                        @endauth
                     </ul>
                 </div>
             </div>
