@@ -15,6 +15,7 @@ class CreateTicketsTable extends Migration
     {
         Schema::create('tickets', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('order_id')->references('id')->on('orders');
             $table->boolean('status');
             $table->decimal('price_per_ticket', 9, 2);
             $table->enum('type', ['vip', 'junior', 'regular'])->default('regular');
